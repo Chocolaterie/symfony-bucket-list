@@ -6,9 +6,11 @@
 
 {% block body %}
 
-    <h2>Détail d'un wish... Titre de l'idée ici!</h2>
-    <p>{{ wish }}</p>
-    <p>id = {{ id }}</p>
+    <h2>{{ wish.title }}</h2>
+    <p>{{ wish.description }}</p>
+    <p>Auteur : {{ wish.author }}</p>
+    <p>Publié : {{ wish.published ? 'Oui' : 'Non' }}</p>
+    <p>Date de création : {{ wish.dateCreated | date('d/m/Y') }}</p>
 
 {% endblock %}
 

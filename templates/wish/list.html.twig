@@ -5,7 +5,7 @@
 
     <ul>
         {% for w in wishes %}
-            <li>{{ w }}</li>
+            <li><a href="{{ path('wish_detail', {'id': w.id}) }}">{{ w.title }}</a></li>
         {% endfor %}
     </ul>
 
