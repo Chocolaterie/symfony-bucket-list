@@ -1,37 +1,12 @@
-<nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('main_home') }}"
-                       title="Go back to homepage">
-                        Home
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('wish_list') }}"
-                       title="All wishes">
-                        All wishes
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('wish_create') }}"
-                       title="Créer un voeux">
-                        Create wish
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('main_aboutus') }}"
-                       title="About Us">
-                        About Us
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<!-- NAVIGATION -->
+<div class="uk-container">
+    <nav class="nav-scroll">
+        <ul class="uk-subnav uk-flex uk-flex-between uk-flex-nowrap">
+            <li><a href="{{ path('main_home') }}">Home</a></li>
+            <li><a href="{{ path('wish_list') }}">All wishes</a></li>
+            <li><a href="{{ path('wish_create') }}">Create wish</a></li>
+            <li><a href="{{ path('main_aboutus') }}">About Us</a></li>
+        </ul>
+    </nav>
+</div>
+<!-- /NAVIGATION -->
