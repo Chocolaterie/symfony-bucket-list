@@ -19,65 +19,25 @@
 
     {% endblock %}
 </head>
-<body class="d-flex flex-column">
+<body>
 {# entête du site #}
 
-<!--HEADER-->
-<header id="header" style="background-color: #fff;"
-        data-uk-sticky="show-on-up: true; animation: uk-animation-fade; media: @l">
-    <div class="uk-container">
-        <nav id="navbar" data-uk-navbar="mode: click;">
-            <div class="uk-navbar-center nav-overlay">
-                <a class="uk-navbar-item uk-logo" href="{{ path('main_home') }}" title="Go back to homepage">
-                    <img src="{{ asset('img/logo.png') }}">
-                </a>
-            </div>
-        </nav>
-    </div>
-</header>
 <!--/HEADER-->
 {% include('_navbar.html.twig') %}
-
 
 {# contenu principal de chaque page #}
 <main class="uk-height-viewport">
     <div class="uk-section uk-section-default">
         <div class="uk-container">
 
-            {#  Pour chaque type de message temporaire (ex: [success, [messages]] #}
-            {% for label, messages in app.flashes %}
-                {#  Pour chaque message j'affiche une alert. ex: [Virement effectué, Connecté] #}
-                {% for message in messages %}
-                    <div class="uk-alert-{{ label }}" uk-alert>
-                        <a href class="uk-alert-close" uk-close></a>
-                        <p>{{ message }}</p>
-                    </div>
-                {% endfor %}
-            {% endfor %}
-            
+            {% include('_flash-messages.html.twig') %}
+
             {% block body %}{% endblock %}
         </div>
     </div>
 </main>
 {# pied-de-page du site #}
-<!--FOOTER-->
-<footer class="uk-section-secondary">
-    <div class="uk-section uk-section-xsmall" style="background-color: rgba(0,0,0,0.15)">
-        <div class="uk-container">
-            <div class="uk-grid uk-child-width-1-2@s uk-text-center uk-text-left@s" data-uk-grid>
-                <div class="uk-text-small uk-text-muted">
-                    &copy; Bucket-List {{ "now"|date("Y") }}
-                </div>
-                <div class="uk-text-small uk-text-muted uk-text-center uk-text-right@s">
-                    <a href="https://github.com/zzseba78/Kick-Off">Created by KickOff</a> | Built with <a
-                            href="http://getuikit.com" title="Visit UIkit 3 site" target="_blank" data-uk-tooltip><span
-                                data-uk-icon="uikit"></span></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-<!--/FOOTER-->
+{% include('_footer.html.twig') %}
 
 </body>
 </html>
