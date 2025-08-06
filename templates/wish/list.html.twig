@@ -10,6 +10,7 @@
                 <a href="{{ path('wish_detail', {'id': w.id}) }}">
                 <div class="uk-card uk-card-hover uk-card-body eni-card">
                     <h3 class="uk-card-title">{{ w.title }}</h3>
+                    <p>Category: {{ w.category ? w.category.name : 'Aucune catégorie' }}</p>
                     <p>Read more</p>
                 </div>
                 </a>

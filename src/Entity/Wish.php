@@ -19,6 +19,7 @@ class Wish
     #[ORM\Column(length: 250)]
     private ?string $title = null;
 
+    #[Assert\NotBlank]
     #[Assert\Length(min: 10, max: 255)]
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
@@ -35,6 +36,9 @@ class Wish
 
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $dateUpdate = null;
+
+    #[ORM\ManyToOne(inversedBy: 'wishes')]
+    private ?Category $category = null;
 
     public function getId(): ?int
     {
@@ -109,6 +113,18 @@ class Wish
     public function setDateUpdate(?\DateTimeImmutable $dateUpdate): static
     {
         $this->dateUpdate = $dateUpdate;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): static
+    {
+        $this->category = $category;
 
         return $this;
     }

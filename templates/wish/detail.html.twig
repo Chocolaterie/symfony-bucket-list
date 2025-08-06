@@ -11,6 +11,7 @@
     <p>Auteur : {{ wish.author }}</p>
     <p>Publié : {{ wish.published ? 'Oui' : 'Non' }}</p>
     <p>Date de création : {{ wish.dateCreated | date('d/m/Y') }}</p>
+    <p>Category: {{ wish.category ? wish.category.name : 'Aucune catégorie' }}</p>
 
 {% endblock %}
 
