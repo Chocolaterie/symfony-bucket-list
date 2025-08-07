@@ -5,3 +5,7 @@
 .uk-card-hover:not(.uk-card-default):not(.uk-card-primary):not(.uk-card-secondary):hover.eni-card {
     background-color: #f3f3f3;
 }
+
+.eni-logo img{
+    width: 36px;
+}

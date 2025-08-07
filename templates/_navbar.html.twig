@@ -1,26 +1,57 @@
 <!--HEADER-->
-<header id="header" style="background-color: #fff;"
-        data-uk-sticky="show-on-up: true; animation: uk-animation-fade; media: @l">
+<header style="background-color: #fff; border-bottom: 1px solid #f2f2f2"
+        data-uk-sticky="show-on-up: true; animation: uk-animation-slide-top">
     <div class="uk-container">
         <nav id="navbar" data-uk-navbar="mode: click;">
-            <div class="uk-navbar-center nav-overlay">
-                <a class="uk-navbar-item uk-logo" href="{{ path('main_home') }}" title="Go back to homepage">
+            <div class="uk-navbar-left">
+                <ul class="uk-navbar-nav">
+                    {% if app.user %}
+                    <li>
+                        <a href="#" data-uk-icon="icon:user"></a>
+                        <div class="uk-navbar-dropdown uk-navbar-dropdown-bottom-left">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-nav-header uk-text-small uk-text-primary">YOUR ACCOUNT</li>
+                                <li>{{  app.user.email }}</li>
+                                <li> {{  app.user.username }}</li>
+                                <li class="uk-nav-divider"></li>
+                                <li><a href="{{ path('app_logout') }}"><span data-uk-icon="icon: sign-out"></span> Logout</a></li>
+
+                            </ul>
+                        </div>
+                    </li>
+                    {% else %}
+                        <a class="uk-button uk-button-default uk-width-1-1" href="{{ path('app_login') }}">Sign In</a>
+                    {% endif %}
+                </ul>
+
+            </div>
+            <div class="uk-navbar-center">
+                <a class="uk-navbar-item uk-logo eni-logo" href="{{ path('main_home') }}" title="Go back to homepage">
                     <img src="{{ asset('img/logo.png') }}">
                 </a>
+            </div>
+            <div class="uk-navbar-right">
+
+                <div class="uk-navbar-item">
+                    <a class="uk-navbar-toggle uk-hidden@m" data-uk-toggle data-uk-navbar-toggle-icon
+                       href="#offcanvas-nav"></a>
+                </div>
             </div>
         </nav>
     </div>
 </header>
+<!--/HEADER-->
 
-<!-- NAVIGATION -->
-<div class="uk-container">
-    <nav class="nav-scroll">
-        <ul class="uk-subnav uk-flex uk-flex-between uk-flex-nowrap">
+<!-- OFFCANVAS -->
+<div id="offcanvas-nav" data-uk-offcanvas="flip: true; overlay: true">
+    <div class="uk-offcanvas-bar uk-offcanvas-bar-animation uk-offcanvas-slide">
+        <button class="uk-offcanvas-close uk-close uk-icon" type="button" data-uk-close></button>
+        <ul class="uk-nav uk-nav-default">
             <li><a href="{{ path('main_home') }}">Home</a></li>
             <li><a href="{{ path('wish_list') }}">All wishes</a></li>
             <li><a href="{{ path('wish_create') }}">Create wish</a></li>
             <li><a href="{{ path('main_aboutus') }}">About Us</a></li>
         </ul>
-    </nav>
+    </div>
 </div>
-<!-- /NAVIGATION -->
+<!-- /OFFCANVAS -->
